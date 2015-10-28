@@ -1,6 +1,10 @@
+;;emacs -q -l ~/path/to/somewhere/init.el
+;;の様な起動で、設定ファイルに干渉すること無く、別の設定ファイルを試す事が出来る
+
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
+;;el-getが無かった場合に、自動でインストールする
 (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer

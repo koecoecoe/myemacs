@@ -1,6 +1,5 @@
 ;;emacs -q -l ~/path/to/somewhere/init.el
 ;;の様な起動で、設定ファイルに干渉すること無く、別の設定ファイルを試す事が出来る
-
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
@@ -12,7 +11,36 @@
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
         (eval-print-last-sexp)))
+;;plantuml-modeをel-getでインストールする
+(el-get-bundle plantuml-mode)
 
+;;フォント設定
+
+;; org-plantuml-jar-path は plantuml.jar へのパス
+(setq org-plantuml-jar-path "~/plantuml/plantuml.jar")
+(defun org-mode-init ()
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   (add-to-list 'org-babel-load-languages '(plantuml . t))))
+(add-hook 'org-mode-hook 'org-mode-init)
+
+;;active Org-babel languages※org-modeでditaaを使う※jditaaに設定済み
+;; active Org-babel languages
+(setq org-ditaa-jar-path "~/ditaa/ditaa09/jditaa.jar")
+
+;; コードを評価するとき尋ねない
+(setq org-confirm-babel-evaluate nil)
+;; 有効にする言語 デフォルトではelispのみ
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t)
+   (dot . t)))
+
+(setq org-export-html-coding-system 'utf-8)
+
+;;picture-mode-initをロードする
+(add-hook 'picture-mode-hook 'picture-mode-init)
+(autoload 'picture-mode-init "picture-init")
 
 ;;C-hでバックスペース
 (global-set-key "\C-h" 'delete-backward-char)

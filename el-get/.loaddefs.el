@@ -183,11 +183,30 @@ Display a list of packages.
 
 ;;;***
 
+;;;### (autoloads nil "plantuml-mode/plantuml-mode" "plantuml-mode/plantuml-mode.el"
+;;;;;;  (22127 62179 842891 980000))
+;;; Generated autoloads from plantuml-mode/plantuml-mode.el
+
+(autoload 'plantuml-render-region "plantuml-mode/plantuml-mode" "\
+Replace PlantUML at region with rendered UML.
+
+\(fn)" t nil)
+
+(autoload 'plantuml-mode "plantuml-mode/plantuml-mode" "\
+Major mode for plantuml.
+
+Shortcuts             Command Name
+\\[plantuml-complete-symbol]      `plantuml-complete-symbol'
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil nil ("el-get/el-get-autoloading.el" "el-get/el-get-build.el"
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el") (22064 59890 880412 4000))
+;;;;;;  "el-get/el-get-status.el") (22127 62180 136057 226000))
 
 ;;;***
 
